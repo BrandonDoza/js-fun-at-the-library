@@ -1,5 +1,5 @@
 // I need to make a function called shelfBook
-// the function needs to add books to a certain shelf based on the genre
+// the function needs to add books to a certain shelf array based on the genre
 // the function takes in 2 arguments
 // the function needs to place the new object at the beginning of the array (unshift method)
 // the array should only be able to hold a certain number of objects

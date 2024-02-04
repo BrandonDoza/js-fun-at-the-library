@@ -1,4 +1,6 @@
 // I need a function that called createTitle 
+// the function needs to take in one argument, so it needs one parameter
+// the function needs to return an inerpolated string that uses the argument passed into the function 
 
 function createTitle(title) {
   return `The ${title}`

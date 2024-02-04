@@ -13,21 +13,31 @@ function createLibrary(name) {
   }
 }
 
-// I need to  make a function that adds a book to a particular shelf array
+// I need to  make a function that adds a book to a particular shelf array in the library object 
 // the function takes in 2 arguments, a library object and a book object
 // the library object has a nested object of shelves that have arrays as values
 // the book object needs to be added to the correct shelf based on the genre
 
+//<><>Refactored<><>
 function addBook(library, book) {
-  if (book.genre === 'fantasy') {
-    library.shelves.fantasy.push(book)
-  } else if (book.genre === 'fiction') {
-    library.shelves.fiction.push(book)
-  } else {
-    library.shelves.nonFiction.push(book)
+  var genreKey = 'genre';
+  if (book[genreKey] in library.shelves) {
+    library.shelves[book[genreKey]].push(book);
+    return library
   }
-  return library
 }
+
+
+// function addBook(library, book) {
+//   if (book.genre === 'fantasy') {
+//     library.shelves.fantasy.push(book)
+//   } else if (book.genre === 'fiction') {
+//     library.shelves.fiction.push(book)
+//   } else {
+//     library.shelves.nonFiction.push(book)
+//   }
+//   return library
+// }
 
 // I need to make a function called checkoutBook
 // the function needs to remove a book from the correct array that it is in
@@ -49,6 +59,7 @@ function checkoutBook(library, title, genre) {
 // I need a function called takeStock
 // the function takes in 2 arguments
 // the function returns the number of books in a given array
+// if an array/argument is passed that does not exist, I must return the total books in the library
 
 function takeStock(libraryObj, shelf) {
   var totalBooks = libraryObj.shelves.fiction.length + libraryObj.shelves.nonFiction.length + libraryObj.shelves.fantasy.length;
